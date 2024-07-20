@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="ExampleSuite" parallel="false">
+    <test name="SuiteTests" >
+        <groups>
+            <run>
+                <include name="ButtonTests"/>
+                <!-- <include name="HeaderTests" />-->
+                <!--<exclude name="HeaderTests" />-->
+            </run>
+        </groups>
+        <classes>
+            <class name="DemoOne"/>
+            <class name="DemoTwo"/>
+            <class name="Activity5"/>
+
+        </classes>
+    </test>
+</suite>
