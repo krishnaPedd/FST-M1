@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="38102d98-f2e5-4a16-bf2a-7f165938827f" created="3.53.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="Activity3" projectVersion="" updated="3.53.0 2024-05-13T12:06:25Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="2072960f-ecbd-405a-9fea-3d0d6e21fb61" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://www.dneonline.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings id="a6d76715-7910-4ea1-a8db-b5e0b9d07274"/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>http://www.dneonline.com</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Calculator.asmx" path="/calculator.asmx" id="d1d880f3-d1dc-4153-b83d-23efa964540a">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Calculator.asmx" id="57078580-2e5c-438b-926b-d6a79ba57be2" method="POST">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>op</con:name>
+            <con:value>Add</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>Add</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/soap+xml; charset=utf-8</con:mediaType>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element xmlns:soap="http://www.w3.org/2003/05/soap-envelope">soap:Envelope</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/xml</con:mediaType>
+          <con:params/>
+          <con:element xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">soapenv:Envelope</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>text/html; charset=utf-8</con:mediaType>
+          <con:status>415</con:status>
+          <con:params/>
+          <con:element xmlns:xht="http://www.w3.org/1999/xhtml">xht:html</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:params/>
+          <con:element xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">soapenv:Envelope</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/xml; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">soapenv:Envelope</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="570d7740-53bb-4e51-9d65-28042a112157" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://www.dneonline.com</con:endpoint>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters>
+            <con:entry key="op" value="Add"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>op</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="9cb31a7e-d6c6-4a0f-ae21-6e62c35599a1" name="http://www.dneonline.com Test Suite">
+    <con:settings id="a144a384-54cf-4e1a-99bb-9eae5120cd6f"/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="707dbe08-93a8-47aa-9572-55d08e37294f" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="http://www.dneonline.com Test Case 1" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="39211891-7d15-49f0-8d5c-d1f12b1977a0">
+        <con:settings/>
+        <con:config service="http://www.dneonline.com" resourcePath="/calculator.asmx" methodName="Calculator.asmx" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="570d7740-53bb-4e51-9d65-28042a112157" mediaType="text/xml" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://www.dneonline.com</con:endpoint>
+            <con:request><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <Add xmlns="http://tempuri.org/">
+      <intA>10</intA>
+      <intB>400</intB>
+    </Add>
+  </soap:Body>
+</soap:Envelope>]]></con:request>
+            <con:originalUri>http://www.dneonline.com/calculator.asmx</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="ca599d43-b0e9-45ca-bbd3-9b8f4263b581" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="XPath Match" id="2a507780-abf3-468d-a4fb-cf851ffbc28f" name="XPath Match">
+              <con:configuration>
+                <path>declare namespace ns1='http://tempuri.org/';
+//ns1:AddResponse[1]/ns1:AddResult[1]</path>
+                <content>410</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="op" value="Add"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>op</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>
